@@ -72,7 +72,6 @@ export const constantRouterMap = [{
   }
   ]
 },
-
 {
   path: '/gathering',
   component: Layout,
@@ -86,7 +85,34 @@ export const constantRouterMap = [{
     }
   }]
 },
-
+{
+  path: '/recruit',
+  component: Layout,
+  name: 'Recruit',
+  meta: {
+    title: '招聘管理',
+    icon: 'example'
+  },
+  children: [{
+    path: 'enterprise',
+    name: 'Enterprise',
+    component: () => import('@/views/table/enterprise'),
+    meta: {
+      title: '企业管理',
+      icon: 'table'
+    }
+  },
+  {
+    path: 'recruit',
+    name: 'Recruit',
+    component: () => import('@/views/table/recruit'),
+    meta: {
+      title: '招聘信息',
+      icon: 'tree'
+    }
+  }
+  ]
+},
 {
   path: '/nested',
   component: Layout,
