@@ -61,7 +61,7 @@
       <el-table-column prop="content1" label="职位描述" width="80"></el-table-column>
       <el-table-column prop="content2" label="职位要求" width="80"></el-table-column>
 
-      <el-table-column fixed="right" label="操作" width="100">
+      <el-table-column label="操作" width="100">
         <template slot-scope="scope">
           <el-button @click="handleEdit(scope.row.id)" type="text" size="small">修改</el-button>
           <el-button @click="handleDelete(scope.row.id)" type="text" size="small">删除</el-button>
@@ -108,11 +108,8 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="创建日期">
-          <el-input v-model="pojo.createtime"></el-input>
-        </el-form-item>
         <el-form-item label="状态">
-          <el-input v-model="pojo.state"></el-input>
+          <el-switch placeholder="是否热门" active-value="1" inactive-value="0" v-model="pojo.state"></el-switch>
         </el-form-item>
         <el-form-item label="网址">
           <el-input v-model="pojo.url"></el-input>
@@ -126,7 +123,6 @@
         <el-form-item label="职位要求">
           <el-input v-model="pojo.content2"></el-input>
         </el-form-item>
-
         <el-button type="primary" @click="handleSave()">保存</el-button>
         <el-button @click="dialogFormVisible = false">关闭</el-button>
       </el-form>

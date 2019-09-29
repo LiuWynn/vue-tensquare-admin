@@ -5,31 +5,6 @@
       <el-form-item label="企业名称">
         <el-input v-model="searchMap.name" placeholder="企业名称"></el-input>
       </el-form-item>
-      <el-form-item label="企业简介">
-        <el-input v-model="searchMap.summary" placeholder="企业简介"></el-input>
-      </el-form-item>
-      <el-form-item label="企业地址">
-        <el-input v-model="searchMap.address" placeholder="企业地址"></el-input>
-      </el-form-item>
-      <el-form-item label="标签列表">
-        <el-input v-model="searchMap.labels" placeholder="标签列表"></el-input>
-      </el-form-item>
-      <el-form-item label="坐标">
-        <el-input v-model="searchMap.coordinate" placeholder="坐标"></el-input>
-      </el-form-item>
-      <el-form-item label="是否热门">
-        <el-input v-model="searchMap.ishot" placeholder="是否热门"></el-input>
-      </el-form-item>
-      <el-form-item label="LOGO">
-        <el-input v-model="searchMap.logo" placeholder="LOGO"></el-input>
-      </el-form-item>
-      <el-form-item label="职位数">
-        <el-input v-model="searchMap.jobcount" placeholder="职位数"></el-input>
-      </el-form-item>
-      <el-form-item label="URL">
-        <el-input v-model="searchMap.url" placeholder="URL"></el-input>
-      </el-form-item>
-
       <el-button type="primary" @click="fetchData()">查询</el-button>
       <el-button type="primary" @click="handleEdit('')">新增</el-button>
     </el-form>
@@ -71,7 +46,7 @@
           <el-input v-model="pojo.name"></el-input>
         </el-form-item>
         <el-form-item label="企业简介">
-          <el-input type="textarea" :rows="2" v-model="pojo.summary"></el-input>
+          <el-input type="textarea" :rows="4" v-model="pojo.summary"></el-input>
         </el-form-item>
         <el-form-item label="企业地址">
           <el-input v-model="pojo.address"></el-input>
@@ -180,6 +155,7 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       this.imageUrl = URL.createObjectURL(file.raw);
+      this.pojo.logo = this.imageUrl
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === 'image/jpeg';
