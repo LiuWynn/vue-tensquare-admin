@@ -43,5 +43,11 @@ export default {
       url: `/${group_name}/${api_name}/${id}`,
       method: 'delete'
     })
+  },
+  examine(id) {
+    return request({
+      url: `/${group_name}/${api_name}/examine/${id}`,
+      method: 'put'
+    })
   }
 }
